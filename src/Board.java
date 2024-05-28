@@ -53,5 +53,31 @@ public class Board {
 
 
 
+    public void moveUp(){
+        for (int i = 1; i < 4; i++){
+            for (int j = 0; j < 4; j++){
+                if (grid[i][j] != 0 && (grid[i - 1][j] == grid[i][j])){
+                    grid[i - 1][j] += grid[i][j];
+                    grid[i][j] = 0;
+                }
+            }
+        }
+
+        for (int i = 1; i < 4; i++){
+            for (int j = 0; j < 4; j++){
+                if (grid[i][j] != 0){
+                    int k = i;
+                    while (k > 0){
+                        if (grid[k - 1][j] == 0){
+
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+
 
 }
