@@ -55,7 +55,7 @@ public class Board {
 
 
     public void moveUp(){
-        int k = 0;
+        int k;
         for (int i = 1; i < 4; i++){
             for (int j = 0; j < 4; j++){
                 if (grid[i][j] != 0){
@@ -67,8 +67,6 @@ public class Board {
                         grid[k][j] = grid[i][j];
                         grid[i][j] = 0;
                     }
-                    //printBoard();
-                    //System.out.println();
                 }
             }
         }
@@ -78,8 +76,6 @@ public class Board {
                 if (grid[i][j] != 0 && (grid[i - 1][j] == grid[i][j])){
                     grid[i - 1][j] += grid[i][j];
                     grid[i][j] = 0;
-                    //printBoard();
-                    //System.out.println();
                 }
             }
         }
@@ -96,8 +92,6 @@ public class Board {
                         grid[k][j] = grid[i][j];
                         grid[i][j] = 0;
                     }
-                    //printBoard();
-                    //System.out.println();
                 }
             }
         }
@@ -106,7 +100,7 @@ public class Board {
     }
 
     public void moveDown(){
-        int k = 0;
+        int k;
         for (int i = 2; i >= 0; i--){
             for (int j = 0; j < 4; j++){
                 if (grid[i][j] != 0){
@@ -118,8 +112,6 @@ public class Board {
                         grid[k][j] = grid[i][j];
                         grid[i][j] = 0;
                     }
-                    //printBoard();
-                    //System.out.println();
                 }
             }
         }
@@ -129,8 +121,6 @@ public class Board {
                 if (grid[i][j] != 0 && (grid[i + 1][j] == grid[i][j])){
                     grid[i + 1][j] += grid[i][j];
                     grid[i][j] = 0;
-                    //printBoard();
-                    //System.out.println();
                 }
             }
         }
@@ -146,15 +136,13 @@ public class Board {
                         grid[k][j] = grid[i][j];
                         grid[i][j] = 0;
                     }
-                    //printBoard();
-                    //System.out.println();
                 }
             }
         }
     }
 
     public void moveLeft(){
-        int k = 0;
+        int k;
         for (int i = 0; i < 4; i++){
             for (int j = 1; j < 4; j++){
                 if (grid[i][j] != 0){
@@ -166,8 +154,6 @@ public class Board {
                         grid[i][k] = grid[i][j];
                         grid[i][j] = 0;
                     }
-                    //printBoard();
-                    //System.out.println();
                 }
             }
         }
@@ -177,8 +163,6 @@ public class Board {
                 if (grid[i][j] != 0 && (grid[i][j - 1] == grid[i][j])){
                     grid[i][j - 1] += grid[i][j];
                     grid[i][j] = 0;
-                    //printBoard();
-                    //System.out.println();
                 }
             }
         }
@@ -194,8 +178,6 @@ public class Board {
                         grid[i][k] = grid[i][j];
                         grid[i][j] = 0;
                     }
-                    //printBoard();
-                    //System.out.println();
                 }
             }
         }
@@ -204,7 +186,7 @@ public class Board {
     }
 
     public void moveRight(){
-        int k = 0;
+        int k;
         for (int i = 0; i < 4; i++){
             for (int j = 2; j >= 0; j--){
                 if (grid[i][j] != 0){
@@ -216,8 +198,6 @@ public class Board {
                         grid[i][k] = grid[i][j];
                         grid[i][j] = 0;
                     }
-                    //printBoard();
-                    //System.out.println();
                 }
             }
         }
@@ -227,8 +207,6 @@ public class Board {
                 if (grid[i][j] != 0 && (grid[i][j + 1] == grid[i][j])){
                     grid[i][j + 1] += grid[i][j];
                     grid[i][j] = 0;
-                    //printBoard();
-                    //System.out.println();
                 }
             }
         }
@@ -244,15 +222,47 @@ public class Board {
                         grid[i][k] = grid[i][j];
                         grid[i][j] = 0;
                     }
-                    //printBoard();
-                    //System.out.println();
                 }
             }
         }
 
 
+    }
 
+    public boolean checkLose(){
+        boolean anyZeros = false;
+        for (int[] arr: grid){
+            for (int i : arr){
+                if (i == 0) {
+                    anyZeros = true;
+                    break;
+                }
+            }
+        }
 
+        if (!anyZeros){
+            for (int i = 0; i < 3; i++){
+                for (int j = 0; j < 3; j++){
+                    if (grid[i][j] == grid[i + 1][j] || grid[i][j] == grid[i][j + 1]){
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return !anyZeros;
+
+    }
+
+    public boolean checkWin(){
+        for (int[] arr: grid){
+            for (int i : arr){
+                if (i == 2048) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 

@@ -14,6 +14,7 @@ public class myFrame extends JFrame implements KeyListener{
     }
 
 
+    Board b = new Board();
 
 
     @Override
@@ -23,13 +24,31 @@ public class myFrame extends JFrame implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-        switch(e.getKeyCode()){
-            case 'a' :
-        }
+
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         System.out.println(e.getKeyCode());
+        switch(e.getKeyCode()){
+            case 87, 38:
+                b.moveUp();
+                break;
+
+            case 65, 37:
+                b.moveLeft();
+                break;
+
+            case 83, 40:
+                b.moveDown();
+                break;
+
+            case 68, 39 :
+                b.moveRight();
+                break;
+
+        }
     }
+
+
 }

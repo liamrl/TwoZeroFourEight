@@ -1,39 +1,41 @@
 public class Main {
     public static void main(String[] args) {
 
-
-        Board b = new Board();
-        b.nextNumAndPlace();
-        b.nextNumAndPlace();
-        b.nextNumAndPlace();
+        myFrame mF = new myFrame();
 
 
-        b.printBoard();
-
-        b.moveUp();
-        b.printBoard();
-        System.out.println("Moved up");
-        b.nextNumAndPlace();
-        b.printBoard();
-
-
-        b.moveDown();
-        b.printBoard();
-        System.out.println("Moved down");
-        b.nextNumAndPlace();
-        b.printBoard();
-
-        b.moveLeft();
-        b.printBoard();
-        System.out.println("Moved left");
-        b.nextNumAndPlace();
-        b.printBoard();
-
-        b.moveRight();
-        b.printBoard();
-        System.out.println("Moved right");
-        b.nextNumAndPlace();
-        b.printBoard();
+//        Board b = new Board();
+//        b.nextNumAndPlace();
+//        b.nextNumAndPlace();
+//        b.nextNumAndPlace();
+//
+//
+//        b.printBoard();
+//
+//        b.moveUp();
+//        b.printBoard();
+//        System.out.println("Moved up");
+//        b.nextNumAndPlace();
+//        b.printBoard();
+//
+//
+//        b.moveDown();
+//        b.printBoard();
+//        System.out.println("Moved down");
+//        b.nextNumAndPlace();
+//        b.printBoard();
+//
+//        b.moveLeft();
+//        b.printBoard();
+//        System.out.println("Moved left");
+//        b.nextNumAndPlace();
+//        b.printBoard();
+//
+//        b.moveRight();
+//        b.printBoard();
+//        System.out.println("Moved right");
+//        b.nextNumAndPlace();
+//        b.printBoard();
 
 
 
