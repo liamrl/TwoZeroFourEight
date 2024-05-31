@@ -1,42 +1,29 @@
 public class Main {
     public static void main(String[] args) {
 
-        myFrame mF = new myFrame();
 
 
-//        Board b = new Board();
-//        b.nextNumAndPlace();
-//        b.nextNumAndPlace();
-//        b.nextNumAndPlace();
-//
-//
-//        b.printBoard();
-//
-//        b.moveUp();
-//        b.printBoard();
-//        System.out.println("Moved up");
-//        b.nextNumAndPlace();
-//        b.printBoard();
-//
-//
-//        b.moveDown();
-//        b.printBoard();
-//        System.out.println("Moved down");
-//        b.nextNumAndPlace();
-//        b.printBoard();
-//
-//        b.moveLeft();
-//        b.printBoard();
-//        System.out.println("Moved left");
-//        b.nextNumAndPlace();
-//        b.printBoard();
-//
-//        b.moveRight();
-//        b.printBoard();
-//        System.out.println("Moved right");
-//        b.nextNumAndPlace();
-//        b.printBoard();
+        MainFrame mF = new MainFrame();
 
+
+// switch(e.getKeyCode()){
+//            case 87, 38:
+//                b.moveUp();
+//                break;
+//
+//            case 65, 37:
+//                b.moveLeft();
+//                break;
+//
+//            case 83, 40:
+//                b.moveDown();
+//                break;
+//
+//            case 68, 39 :
+//                b.moveRight();
+//                break;
+//
+//        }
 
 
 

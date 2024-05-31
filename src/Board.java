@@ -6,6 +6,10 @@ public class Board {
         grid = new int[4][4];
     }
 
+    public int getPosition(int x, int y){
+        return grid[x][y];
+    }
+
     public void nextNumAndPlace(){
         int count = 0;
         for (int[] arr : grid){
@@ -33,8 +37,6 @@ public class Board {
                 }
             }
         }
-
-
     }
 
     public void printBoard(){
@@ -264,6 +266,8 @@ public class Board {
         }
         return false;
     }
+
+
 
 
 }
