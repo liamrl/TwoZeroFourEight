@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -7,12 +8,14 @@ public class MainFrame implements Runnable, KeyListener {
 
     public MainFrame() {
         JFrame frame = new JFrame("2048");
+        frame.setBackground(Color.WHITE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(430, 430);
+        frame.setSize(440, 465);
         frame.setLocation(300, 50);
         // create and add panel
         panel = new GraphicsPanel();
         frame.add(panel);
+        panel.Play();
 
         // display the frame
         frame.setVisible(true);
@@ -21,6 +24,7 @@ public class MainFrame implements Runnable, KeyListener {
         Thread thread = new Thread(this);
         thread.start();
     }
+
 
 
 
