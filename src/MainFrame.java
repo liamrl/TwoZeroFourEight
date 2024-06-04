@@ -1,10 +1,11 @@
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class MainFrame implements Runnable, KeyListener {
     private GraphicsPanel panel;
+    private Board board;
 
     public MainFrame() {
         JFrame frame = new JFrame("2048");
@@ -12,43 +13,63 @@ public class MainFrame implements Runnable, KeyListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(440, 465);
         frame.setLocation(300, 50);
-        // create and add panel
-        panel = new GraphicsPanel();
-        frame.add(panel);
-        panel.Play();
 
-        // display the frame
+        board = new Board();
+        panel = new GraphicsPanel(board);
+        frame.add(panel);
+        frame.addKeyListener(this);
+
         frame.setVisible(true);
 
-        // start thread, required for animation
         Thread thread = new Thread(this);
         thread.start();
     }
 
-
-
-
-    // Runnable interface method
     public void run() {
         while (true) {
-            panel.repaint();  // we don't ever call paintComponent directly
+            panel.repaint();
         }
     }
 
-
     @Override
     public void keyTyped(KeyEvent e) {
-
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
+        boolean moved = false;
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_UP:
+                board.moveUp();
+                moved = true;
+                break;
+            case KeyEvent.VK_DOWN:
+                board.moveDown();
+                moved = true;
+                break;
+            case KeyEvent.VK_LEFT:
+                board.moveLeft();
+                moved = true;
+                break;
+            case KeyEvent.VK_RIGHT:
+                board.moveRight();
+                moved = true;
+                break;
+        }
 
+        if (moved) {
+            board.nextNumAndPlace();
+            panel.repaint();
+
+            if (board.checkWin()) {
+                System.out.println("You win!");
+            } else if (board.checkLose()) {
+                System.out.println("Game over!");
+            }
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
     }
 }
-

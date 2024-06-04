@@ -1,120 +1,59 @@
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class GraphicsPanel extends JPanel {
 
+    private Board b;
 
-    public GraphicsPanel() {
+    public GraphicsPanel(Board board) {
+        this.b = board;
     }
 
-    Board b = new Board();
-
-
-    private Color changeColor(int x, int y){
-        switch (b.getPosition(0, 0)) {
-            case 2 ->{
+    private Color changeColor(int value) {
+        switch (value) {
+            case 2:
                 return Color.LIGHT_GRAY;
-            }
-            case 4 ->{
+            case 4:
                 return Color.GRAY;
-            }
-            case 8 -> {
+            case 8:
                 return Color.YELLOW;
-            }
-            case 16 -> {
+            case 16:
                 return Color.ORANGE;
-            }
-            case 32 -> {
+            case 32:
                 return Color.PINK;
-            }
-            case 64 -> {
+            case 64:
                 return Color.MAGENTA;
-            }
-            case 128 ->{
+            case 128:
                 return Color.RED;
-            }
-            case 256 ->{
+            case 256:
                 return Color.GREEN;
-            }
-            case 512 ->{
+            case 512:
                 return Color.CYAN;
-            }
-            case 1024 ->{
+            case 1024:
                 return Color.BLUE;
-            }
-            case 2048 ->{
+            case 2048:
                 return Color.BLACK;
-            }
-
+            default:
+                return Color.WHITE;
         }
-        return Color.WHITE;
     }
 
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);  // just do this
-        g.setColor(changeColor(0,0));
-        g.fillRect(5, 5, 100, 100);
+        super.paintComponent(g);
 
-        g.setColor(changeColor(0,1));
-        g.fillRect(5,110 , 100, 100);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                int value = b.getPosition(i, j);
+                g.setColor(changeColor(value));
+                g.fillRect(j * 100 + 5, i * 100 + 5, 100, 100);
 
-        g.setColor(changeColor(0,2));
-        g.fillRect(5, 215 , 100, 100);
-
-        g.setColor(changeColor(0,3));
-        g.fillRect(5,320, 100, 100);
-
-        g.setColor(changeColor(1,0));
-        g.fillRect(110, 5, 100, 100);
-
-        g.setColor(changeColor(1,1));
-        g.fillRect(110,110 , 100, 100);
-
-        g.setColor(changeColor(1,2));
-        g.fillRect(110, 215, 100, 100);
-
-        g.setColor(changeColor(1,3));
-        g.fillRect(110,320 , 100, 100);
-
-        g.setColor(changeColor(2,0));
-        g.fillRect(215, 5, 100, 100);
-
-        g.setColor(changeColor(2,1));
-        g.fillRect(215,110 , 100, 100);
-
-        g.setColor(changeColor(2,2));
-        g.fillRect(215, 215, 100, 100);
-
-        g.setColor(changeColor(2,3));
-        g.fillRect(215,320 , 100, 100);
-
-        g.setColor(changeColor(3,0));
-        g.fillRect(320, 5, 100, 100);
-
-        g.setColor(changeColor(3,1));
-        g.fillRect(320,110 , 100, 100);
-
-        g.setColor(changeColor(3,2));
-        g.fillRect(320, 215, 100, 100);
-
-        g.setColor(changeColor(3,3));
-        g.fillRect(320,320 , 100, 100);
-
-    }
-
-    public void Play(){
-
-            b.nextNumAndPlace();
-            b.moveUp();
-
-            b.nextNumAndPlace();
-            b.moveDown();
-            b.nextNumAndPlace();
-
+                if (value != 0) {
+                    g.setColor(Color.BLACK);
+                    g.drawString(String.valueOf(value), j * 100 + 45, i * 100 + 55);
+                }
+            }
+        }
     }
 }

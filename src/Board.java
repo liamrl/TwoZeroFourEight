@@ -233,7 +233,7 @@ public class Board {
 
     public boolean checkLose(){
         boolean anyZeros = false;
-        for (int[] arr: grid){
+        for (int[] arr : grid){
             for (int i : arr){
                 if (i == 0) {
                     anyZeros = true;
