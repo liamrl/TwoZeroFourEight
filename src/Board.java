@@ -4,6 +4,8 @@ public class Board {
 
     public Board(){
         grid = new int[4][4];
+        nextNumAndPlace();
+        nextNumAndPlace();
     }
 
     public int getPosition(int x, int y){

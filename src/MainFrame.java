@@ -62,9 +62,10 @@ public class MainFrame implements Runnable, KeyListener {
             panel.repaint();
 
             if (board.checkWin()) {
-                System.out.println("You win!");
+                System.out.println("You win!!!");
             } else if (board.checkLose()) {
-                System.out.println("Game over!");
+                System.out.println("Game Over. You lose :(");
+
             }
         }
     }
