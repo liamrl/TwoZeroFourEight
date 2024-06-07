@@ -41,21 +41,6 @@ public class Board {
         }
     }
 
-    public void printBoard(){
-        System.out.println();
-        for (int[] arr : grid) {
-            for (int i : arr) {
-                if (i != 0) {
-                    System.out.print(i + "  ");
-                }
-                else{
-                    System.out.print("[] ");
-                }
-            }
-            System.out.println();
-        }
-    }
-
 
 
     public void moveUp(){
@@ -268,8 +253,6 @@ public class Board {
         }
         return false;
     }
-
-
 
 
 }
