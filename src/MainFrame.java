@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 public class MainFrame implements Runnable, KeyListener {
     private GraphicsPanel panel;
     private Board board;
+    private boolean gameEnded;
 
     public MainFrame() {
         JFrame frame = new JFrame("2048");
@@ -37,6 +38,10 @@ public class MainFrame implements Runnable, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (gameEnded){
+            return;
+        }
+        
         boolean moved = false;
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
@@ -62,9 +67,11 @@ public class MainFrame implements Runnable, KeyListener {
             panel.repaint();
 
             if (board.checkWin()) {
-                System.out.println("You win!!!");
+                frame.setTitle("You win!!!");
+                gameEnded = true;
             } else if (board.checkLose()) {
-                System.out.println("Game Over. You lose :(");
+                frame.setTitle("Game Over. You lose :(");
+                gameEnded = true;
 
             }
         }
