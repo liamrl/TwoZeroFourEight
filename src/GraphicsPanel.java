@@ -10,6 +10,7 @@ public class GraphicsPanel extends JPanel {
         this.b = board;
     }
 
+
     private Color changeColor(int value) {
         switch (value) {
             case 2:
@@ -33,7 +34,7 @@ public class GraphicsPanel extends JPanel {
             case 1024:
                 return Color.BLUE;
             case 2048:
-                return Color.BLACK;
+                return Color.getHSBColor(240, 48, 36);
             default:
                 return Color.WHITE;
         }
