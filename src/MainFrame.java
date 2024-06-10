@@ -7,9 +7,10 @@ public class MainFrame implements Runnable, KeyListener {
     private GraphicsPanel panel;
     private Board board;
     private boolean gameEnded;
+    private JFrame frame;
 
     public MainFrame() {
-        JFrame frame = new JFrame("2048");
+        frame = new JFrame("2048");
         frame.setBackground(Color.WHITE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(440, 465);
@@ -24,6 +25,7 @@ public class MainFrame implements Runnable, KeyListener {
 
         Thread thread = new Thread(this);
         thread.start();
+        gameEnded = false;
     }
 
     public void run() {
